@@ -8,7 +8,7 @@ import {
 import { TrabajoEquipo } from './trabajo_equipo.entity';
 
 @Entity()
-export class TipoEquipo extends BaseEntity {
+export class TipoTrabajo extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
   @Column({ nullable: false })

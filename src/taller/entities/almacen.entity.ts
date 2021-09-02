@@ -5,16 +5,17 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { TrabajoEquipo } from './trabajo_equipo.entity';
+import { Mercancia } from './mercancia.entity';
 
 @Entity()
-export class TipoEquipo extends BaseEntity {
+export class Almacen extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
   @Column({ nullable: false })
   nombre: string;
   @Column({ default: true })
   visible: boolean;
-  @OneToMany(() => TrabajoEquipo, (trabajo_equipo) => trabajo_equipo.trabajo)
-  trabajo_equipos: TrabajoEquipo[];
+
+  @OneToMany(() => Mercancia, (mercancia) => mercancia.almacen)
+  mercancias: Mercancia[];
 }
