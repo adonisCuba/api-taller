@@ -15,6 +15,9 @@ import { AlmacenService } from './services/almacen.service';
 import { MercanciaRepository } from './repositories/mercancia.repository';
 import { MercanciaController } from './controllers/mercancia.controller';
 import { MercanciaService } from './services/mercancia.service';
+import { TrabajadorRepository } from './repositories/trabajador.repository';
+import { TrabajadorController } from './controllers/trabajador.controller';
+import { TrabajadorService } from './services/trabajador.service';
 
 @Module({
   imports: [
@@ -24,6 +27,7 @@ import { MercanciaService } from './services/mercancia.service';
       TrabajoEquipoRepository,
       AlmacenRepository,
       MercanciaRepository,
+      TrabajadorRepository,
     ]),
   ],
   controllers: [
@@ -32,6 +36,7 @@ import { MercanciaService } from './services/mercancia.service';
     TrabajoEquipoController,
     AlmacenController,
     MercanciaController,
+    TrabajadorController,
   ],
   providers: [
     TipoEquipoService,
@@ -39,6 +44,7 @@ import { MercanciaService } from './services/mercancia.service';
     TrabajoEquipoService,
     AlmacenService,
     MercanciaService,
+    TrabajadorService,
   ],
 })
 export class TallerModule {}

@@ -22,7 +22,7 @@ export class Mercancia extends BaseEntity {
   precio_entrada: number;
   @Column({ type: 'numeric' })
   precio_salida: number;
-  @Column()
+  @Column({ type: 'numeric' })
   existencia: number;
   @CreateDateColumn()
   fecha_entrada: Date;

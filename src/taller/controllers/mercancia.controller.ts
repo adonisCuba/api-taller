@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -25,7 +26,7 @@ export class MercanciaController {
 
   @Get()
   @UsePipes(ValidationPipe)
-  find(@Param() filter: FilterMercanciaDto) {
+  find(@Query() filter: FilterMercanciaDto) {
     return this.mercanciaService.findByFilter(filter);
   }
 

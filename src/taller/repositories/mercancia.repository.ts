@@ -10,16 +10,16 @@ export class MercanciaRepository extends Repository<Mercancia> {
     filter: string,
   ) {
     const query = this.createQueryBuilder('mercancia')
-      .select('mercancia')
-      .innerJoin('mercancia.almacen', 'almacen');
-    if (!!almacen) query.andWhere('almacen.id = :almacen', { almacen });
-    if (!!filter)
+      .innerJoinAndSelect('mercancia.almacen', 'almacen')
+      .where('mercancia.visible = true');
+    if (almacen) query.andWhere('almacen.id = :almacen', { almacen });
+    if (filter)
       query.andWhere('mercancia.nombre ilike :filter', {
         filter: `%${filter}%`,
       });
     query.orderBy('mercancia.fecha_entrada', 'ASC');
     return {
-      rows: await query.offset(start).limit(limit).getRawMany(),
+      rows: await query.offset(start).limit(limit).getMany(),
       count: await query.getCount(),
     };
   }
